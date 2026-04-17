@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ariège Pyrénées - Démo Rando</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://rando-widget.geotrek.fr/latest/dist/geotrek-rando-widget/geotrek-rando-widget.css" />
+    <script type="module" src="https://rando-widget.geotrek.fr/latest/dist/geotrek-rando-widget/geotrek-rando-widget.esm.js"></script>
+    <script nomodule src="https://rando-widget.geotrek.fr/latest/dist/geotrek-rando-widget/geotrek-rando-widget.js"></script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            background-color: #f8fafc;
+            color: #1e293b;
+        }
+        header {
+            padding: 2rem 1rem;
+            text-align: center;
+            background: white;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        .widget-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            min-height: 600px; /* Important pour que le widget s'affiche bien */
+        }
+        h1 { margin: 0; font-size: 1.8rem; color: #0f172a; }
+        p { color: #64748b; margin-top: 0.5rem; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Explorer l'Ariège Pyrénées</h1>
+        <p>Démo interactive du Widget Geotrek</p>
+    </header>
+
+    <div class="container">
+        <div class="widget-card">
+            <grw-app 
+                api="https://geotrek-admin-test.ariege.fr/api/v2/"
+                languages="fr"
+                name-layer="IGN"
+                url-layer="https://data.geopf.fr/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2&STYLE=normal&FORMAT=image/png&TILEMATRIXSET=PM&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}"
+                attribution-layer="<a target='_blank' href='https://ign.fr/'>IGN</a>"
+                touristic-contents="true"
+                touristic-events="true"
+                outdoor="true"
+            ></grw-app>
+        </div>
+    </div>
+
+</body>
+</html>
